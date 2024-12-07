@@ -1,11 +1,31 @@
+import java.util.Objects;
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); //Для ввода данных с клавиатуры
 
-        Calculator calculator = new Calculator(); //Объект класса Calculator для вызова методов вычисления
+        System.out.println("Калькулятор запущен. Введи выражение для вычисления:");
 
-        calculator.sum(scanner.nextDouble(), scanner.nextDouble());
+        double firstNumber;
+        //double secondNumber;
+        String operator;
+
+        System.out.println("Введите выражение");
+        firstNumber = scanner.nextDouble();
+        //System.out.println("Введите оператор");
+        operator = scanner.next();
+        //System.out.println("Введите второе число");
+
+        if (Objects.equals(operator, "+")) {
+            System.out.print(Calculator.sum(firstNumber, scanner.nextDouble()));
+        } else if (Objects.equals(operator, "-")) {
+            System.out.print(Calculator.sub(firstNumber, scanner.nextDouble()));
+        } else if (Objects.equals(operator, "*")) {
+            System.out.print(Calculator.multi(firstNumber, scanner.nextDouble()));
+        } else if (Objects.equals(operator, "/")) {
+            System.out.print(Calculator.div(firstNumber, scanner.nextDouble()));
+        }
     }
 }
